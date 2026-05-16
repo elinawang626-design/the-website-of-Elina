@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import Hls from "hls.js";
-import { Instagram, Linkedin, Twitter } from "lucide-react";
-import { useEffect, useRef } from "react";
+import { Github, Mail, MapPin } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -12,6 +12,16 @@ const missionVideo =
 const solutionVideo =
   "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260325_125119_8e5ae31c-0021-4396-bc08-f7aebeb877a2.mp4";
 const hlsUrl = "https://stream.mux.com/8wrHPCX2dC3msyYU9ObwqNdm00u3ViXvOSHUMRYSEe5Q.m3u8";
+const githubUrl = "https://github.com/elinawang626-design";
+
+const profileFacts = [
+  "Yining Wang / 王懿宁",
+  "Duke Kunshan University & Duke University · Class of 2028",
+  "Computer Science / Applied Mathematics",
+  "GPA 3.811",
+  "TOEFL 111 / IELTS 7.5",
+  "AI for Biomedicine · Biomedical Data Science · RAG Systems",
+];
 
 const fadeUp = (delay: number) => ({
   initial: { opacity: 0, y: 20 },
@@ -238,11 +248,15 @@ function Navbar() {
         ))}
       </div>
       <div className="flex items-center gap-2">
-        {[Instagram, Linkedin, Twitter].map((Icon, index) => (
-          <Button aria-label={`social-${index}`} className="rounded-full" key={index} size="icon" variant="glass">
-            <Icon className="h-4 w-4" />
-          </Button>
-        ))}
+        <Button aria-label="GitHub profile" className="rounded-full" size="icon" variant="glass" onClick={() => window.open(githubUrl, "_blank", "noopener,noreferrer")}>
+          <Github className="h-4 w-4" />
+        </Button>
+        <Button aria-label="Email placeholder" className="rounded-full" size="icon" variant="glass">
+          <Mail className="h-4 w-4" />
+        </Button>
+        <Button aria-label="Location placeholder" className="rounded-full" size="icon" variant="glass">
+          <MapPin className="h-4 w-4" />
+        </Button>
       </div>
     </nav>
   );
@@ -273,16 +287,16 @@ function Hero() {
               />
             ))}
           </div>
-          <p className="text-sm text-muted-foreground">13 experiences aligned around one application narrative</p>
+          <p className="text-sm text-muted-foreground">Yining Wang / 王懿宁 · GPA 3.811</p>
         </div>
         <h1 className="text-5xl font-medium tracking-[-2px] md:text-7xl lg:text-8xl">
           Elina <span className="font-serif italic font-normal">跳一跳</span>
         </h1>
         <p className="mx-auto mt-8 max-w-3xl text-lg leading-8 text-[hsl(var(--hero-subtitle))]">
-          Trustworthy, verifiable, deployable AI systems for health and biomedical information.
+          AI for biomedicine, information retrieval, NLP, and deployable research systems.
         </p>
         <motion.div className="liquid-glass mx-auto mt-10 flex max-w-lg items-center justify-between rounded-full p-2" {...fadeUp(0.15)}>
-          <span className="px-5 text-left text-sm text-muted-foreground">CS-oriented student · Health AI · Evaluation-driven systems</span>
+          <span className="px-5 text-left text-sm text-muted-foreground">DKU & Duke 2028 · CS / Applied Math · TOEFL 111</span>
           <motion.a
             className="rounded-full bg-foreground px-8 py-3 text-sm font-bold text-background"
             href="#profile"
@@ -297,15 +311,34 @@ function Hero() {
   );
 }
 
-function PlatformBlock({ experience, index }: { experience: Experience; index: number }) {
+function PlatformBlock({
+  experience,
+  index,
+  active,
+  onSelect,
+}: {
+  experience: Experience;
+  index: number;
+  active: boolean;
+  onSelect: (index: number) => void;
+}) {
   const [left, top] = platformPositions[index];
   return (
-    <motion.a
-      className="group absolute h-24 w-32 -translate-x-1/2 -translate-y-1/2 rounded-lg bg-card text-card-foreground shadow-[10px_12px_0_#1f1f1f,0_22px_40px_rgba(255,255,255,0.05)]"
-      href={`#exp-${index + 1}`}
+    <motion.button
+      aria-label={`Jump to ${experience.title}`}
+      className={cn(
+        "group absolute h-24 w-32 -translate-x-1/2 -translate-y-1/2 rounded-lg bg-card text-left text-card-foreground shadow-[10px_12px_0_#1f1f1f,0_22px_40px_rgba(255,255,255,0.05)]",
+        active && "ring-2 ring-foreground",
+      )}
+      onClick={() => onSelect(index)}
       style={{ left, top }}
-      whileHover={{ y: -8 }}
-      {...fadeUp(index * 0.035)}
+      type="button"
+      whileHover={{ y: -8, scale: 1.03 }}
+      animate={active ? { y: -10, scale: 1.04 } : { y: 0, scale: 1 }}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ type: "spring", stiffness: 320, damping: 18, delay: index * 0.035 }}
     >
       <div className="absolute -bottom-3 -right-3 -z-10 h-full w-full rounded-lg bg-secondary" />
       <div className="absolute inset-2 rounded-md border border-foreground/30" />
@@ -318,11 +351,20 @@ function PlatformBlock({ experience, index }: { experience: Experience; index: n
           <span className="mt-1 block text-[10px] font-bold text-muted-foreground">{experience.area}</span>
         </div>
       </div>
-    </motion.a>
+    </motion.button>
   );
 }
 
 function JumpPath() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const activeExperience = experiences[activeIndex];
+  const [jumperLeft, jumperTop] = platformPositions[activeIndex];
+  const score = String(activeIndex + 1).padStart(2, "0");
+
+  const hop = (direction: 1 | -1) => {
+    setActiveIndex((current) => (current + direction + experiences.length) % experiences.length);
+  };
+
   return (
     <section className="relative overflow-hidden border-t border-border/30 px-6 py-32 md:px-28 md:py-44" id="how-it-works">
       <motion.div className="mx-auto max-w-4xl text-center" {...fadeUp(0)}>
@@ -331,7 +373,7 @@ function JumpPath() {
           跳过每一块 <span className="font-serif italic font-normal">evidence</span>
         </h2>
         <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-muted-foreground">
-          The path keeps the Jump Jump idea, but the content is your resume narrative: each platform is one verifiable experience.
+          Click a platform or use the controls to make the marker hop through the CV-aligned experience path.
         </p>
       </motion.div>
       <div className="relative mx-auto mt-20 h-[1180px] max-w-5xl overflow-hidden rounded-3xl border border-border/30 bg-background">
@@ -350,14 +392,44 @@ function JumpPath() {
             strokeWidth="1.2"
           />
         </svg>
-        <img
+        <motion.img
           alt=""
           className="absolute left-[54%] top-[8%] z-20 h-16 -translate-x-1/2 -translate-y-full drop-shadow-[0_16px_12px_rgba(255,255,255,0.16)]"
+          animate={{ left: jumperLeft, top: jumperTop }}
+          transition={{ type: "spring", stiffness: 120, damping: 16 }}
           src="/assets/jumper.svg"
         />
         {experiences.map((experience, index) => (
-          <PlatformBlock experience={experience} index={index} key={experience.title} />
+          <PlatformBlock active={index === activeIndex} experience={experience} index={index} key={experience.title} onSelect={setActiveIndex} />
         ))}
+        <motion.div
+          className="liquid-glass absolute bottom-6 left-1/2 z-40 w-[calc(100%-3rem)] max-w-3xl -translate-x-1/2 rounded-2xl p-5 md:p-6"
+          key={activeExperience.title}
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.35 }}
+        >
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[3px] text-muted-foreground">
+                Hop {score} / {experiences.length} · {activeExperience.area}
+              </p>
+              <h3 className="mt-2 text-xl font-semibold md:text-2xl">{activeExperience.title}</h3>
+            </div>
+            <div className="flex gap-2">
+              <Button className="h-10 px-4" onClick={() => hop(-1)} type="button" variant="glass">
+                Prev
+              </Button>
+              <Button className="h-10 px-4" onClick={() => hop(1)} type="button">
+                Jump
+              </Button>
+            </div>
+          </div>
+          <p className="mt-4 text-sm leading-7 text-muted-foreground">{activeExperience.short}</p>
+          <a className="mt-4 inline-flex text-sm font-semibold text-foreground underline-offset-4 hover:underline" href={`#exp-${activeIndex + 1}`}>
+            Read CV entry
+          </a>
+        </motion.div>
       </div>
     </section>
   );
@@ -370,8 +442,15 @@ function SignalSection() {
         Trust has changed. <span className="font-serif italic font-normal">Have you?</span>
       </motion.h2>
       <motion.p className="mx-auto mt-8 mb-24 max-w-2xl text-lg leading-8 text-muted-foreground" {...fadeUp(0.1)}>
-        I am a CS-oriented student building trustworthy, deployable, and evaluation-driven AI systems, with a particular interest in health and biomedical information settings.
+        具备人工智能、信息检索、自然语言处理与数据分析项目经验，关注 AI 在生物医学与生命科学场景中的应用。拥有完整的模型开发、数据清洗、检索评估与系统实现经历，并具备药物机制研究、合成生物学与医疗 AI 交叉研究基础。
       </motion.p>
+      <motion.div className="mx-auto mb-20 grid max-w-4xl gap-3 text-left sm:grid-cols-2" {...fadeUp(0.16)}>
+        {profileFacts.map((fact) => (
+          <div className="liquid-glass rounded-xl px-4 py-3 text-sm text-muted-foreground" key={fact}>
+            {fact}
+          </div>
+        ))}
+      </motion.div>
       <div className="mx-auto mb-20 grid max-w-5xl gap-12 md:grid-cols-3 md:gap-8">
         {platformIcons.map((item, index) => (
           <motion.div className="text-center" key={item.name} {...fadeUp(index * 0.1)}>
@@ -394,7 +473,7 @@ function WordReveal({ text, highlight }: { text: string; highlight: string[] }) 
   const words = text.split(" ");
 
   return (
-    <p ref={ref} className="text-2xl font-medium tracking-[-1px] md:text-4xl lg:text-5xl">
+    <p ref={ref} className="relative text-2xl font-medium tracking-[-1px] md:text-4xl lg:text-5xl">
       {words.map((word, index) => (
         <RevealWord
           highlight={highlight}
@@ -498,8 +577,8 @@ function ExperienceWiki() {
             <p className="mt-6 max-w-4xl text-base leading-8 text-muted-foreground">{experience.text}</p>
             <p className="mt-5 max-w-4xl border-l border-foreground/40 pl-5 text-base leading-8 text-foreground/90">{experience.impact}</p>
             <div className="mt-6 flex flex-wrap gap-2">
-              {[...experience.meta, ...experience.tags].map((tag) => (
-                <span className="rounded-full bg-secondary px-3 py-1 text-xs font-semibold text-secondary-foreground" key={tag}>
+              {[...experience.meta, ...experience.tags].map((tag, tagIndex) => (
+                <span className="rounded-full bg-secondary px-3 py-1 text-xs font-semibold text-secondary-foreground" key={`${tag}-${tagIndex}`}>
                   {tag}
                 </span>
               ))}
