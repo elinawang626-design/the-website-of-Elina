@@ -1,86 +1,12 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="zh-CN" class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Elina | Project Hop Profile</title>
-    <link rel="stylesheet" href="./styles.css?v=resume-wiki-2" />
+    <title>Elina | Trustworthy AI Profile</title>
   </head>
   <body>
-    <main class="shell">
-      <section class="stage" aria-label="蜿蜒向前的个人经历路线">
-        <div class="topbar">
-          <div class="hero-copy">
-            <p class="eyebrow">Personal Profile</p>
-            <h1>Elina 跳一跳</h1>
-            <p class="subtitle">Trustworthy, verifiable, deployable AI systems for health and biomedical information.</p>
-          </div>
-          <div class="score" aria-live="polite">
-            <span id="scoreNow">01</span>
-            <small>/ <span id="scoreTotal">08</span></small>
-          </div>
-        </div>
-
-        <div class="world">
-          <div class="sun" aria-hidden="true"></div>
-          <div class="skyline" aria-hidden="true"></div>
-          <svg id="route" class="route" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-            <path id="routeShadow" d=""></path>
-            <path id="routeLine" d=""></path>
-            <path id="routeProgress" d=""></path>
-          </svg>
-          <div id="path" class="path"></div>
-          <img id="jumper" class="jumper" src="./assets/jumper.svg" alt="" />
-        </div>
-      </section>
-
-      <aside class="profile-panel" aria-label="当前经历详情">
-        <div class="identity">
-          <div class="avatar">E</div>
-          <div>
-            <p class="eyebrow">Builder Profile</p>
-            <h2>AI 产品与工程实验者</h2>
-          </div>
-        </div>
-        <p class="intro">
-          I am a CS-oriented student building trustworthy, deployable, and evaluation-driven AI systems, with a particular interest in health and biomedical information settings. My profile connects retrieval, grounding, uncertainty, privacy, observability, and biomedical grounding into one application narrative.
-        </p>
-
-        <div class="levelbar" aria-label="当前路径进度">
-          <div class="levelbar-top">
-            <span>Current Hop</span>
-            <b id="progressLabel">12%</b>
-          </div>
-          <div class="levelbar-track">
-            <span id="progressFill"></span>
-          </div>
-        </div>
-
-        <article class="detail" id="detail">
-          <p class="detail-kicker" id="detailKicker">01 · Agent IDE</p>
-          <h3 id="detailTitle">Atlaslab Loop Experiment</h3>
-          <div class="detail-meta" id="detailMeta"></div>
-          <p id="detailText"></p>
-          <p class="impact" id="detailImpact"></p>
-          <div class="chips" id="detailChips"></div>
-        </article>
-
-        <div class="controls">
-          <button id="prevBtn" type="button" aria-label="上一块">‹</button>
-          <button id="nextBtn" type="button" aria-label="下一块">›</button>
-        </div>
-      </aside>
-
-      <section class="index-strip" aria-label="项目索引">
-        <div class="section-title">
-          <p class="eyebrow">Experience Blocks</p>
-          <h2>路径上的每一块砖</h2>
-          <p>点击任意项目，会让小人跳到对应经历。</p>
-        </div>
-        <div id="cards" class="cards"></div>
-      </section>
-    </main>
-
-    <script src="./script.js?v=resume-wiki-2"></script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
