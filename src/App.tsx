@@ -14,8 +14,10 @@ const solutionVideo =
 const hlsUrl = "https://stream.mux.com/8wrHPCX2dC3msyYU9ObwqNdm00u3ViXvOSHUMRYSEe5Q.m3u8";
 const githubUrl = "https://github.com/elinawang626-design";
 
-const profileFacts = [
-  "Yining Wang / 王懿宁",
+type Language = "en" | "zh";
+
+const profileFactsEn = [
+  "Yining Wang / Elina",
   "Duke Kunshan University & Duke University · Class of 2028",
   "Computer Science / Applied Mathematics",
   "GPA 3.811",
@@ -23,6 +25,17 @@ const profileFacts = [
   "Software · AI/data · health technology · research · product-oriented technical work",
   "Core strengths: implementation, retrieval evaluation, biomedical context, communication",
   "Focus: trustworthy, deployable AI systems for health and biomedical information",
+];
+
+const profileFactsZh = [
+  "王懿宁 / Elina",
+  "昆山杜克大学 & 杜克大学 · 2028 届",
+  "计算机科学 / 应用数学",
+  "GPA 3.811",
+  "TOEFL 111 / IELTS 7.5",
+  "软件 · AI/数据 · 健康科技 · 研究 · 产品导向技术项目",
+  "核心能力：工程实现、检索评估、生物医学语境、清晰沟通",
+  "关注方向：面向健康与生物医学信息场景的可信、可部署 AI 系统",
 ];
 
 const fadeUp = (delay: number) => ({
@@ -43,7 +56,7 @@ type Experience = {
   tags: string[];
 };
 
-const experiences: Experience[] = [
+const experiencesEn: Experience[] = [
   {
     area: "Clinical AI",
     title: "Atlaslab IDE / Verifiable AI Agents for Clinical Research",
@@ -221,7 +234,7 @@ const experienceColors = [
   "#2dd4bf",
 ];
 
-const platformIcons = [
+const platformIconsEn = [
   {
     image: "/assets/icon-chatgpt.png",
     name: "Technical implementation",
@@ -239,6 +252,257 @@ const platformIcons = [
   },
 ];
 
+const platformIconsZh = [
+  {
+    image: "/assets/icon-chatgpt.png",
+    name: "技术实现能力",
+    description: "用 Python、TypeScript/React、Go、DSPy、vLLM 和检索流程构建过 RAG、前后端、监控和工作流工具。",
+  },
+  {
+    image: "/assets/icon-perplexity.png",
+    name: "研究与评估能力",
+    description: "设计过评估标准、引用校验、research ledger、不确定性校准和检索指标，而不是只停留在 demo 展示。",
+  },
+  {
+    image: "/assets/icon-google.png",
+    name: "沟通与协作能力",
+    description: "作为 CS peer tutor 解释技术概念，参与 iGEM 团队协作，也把健康 AI 项目转化成用户可理解的流程和材料。",
+  },
+];
+
+const experiencesZh: Experience[] = [
+  {
+    area: "临床 AI",
+    title: "Atlaslab IDE / 面向临床研究的可验证 AI Agent",
+    short: "参与本地临床研究 AI workspace 的产品与工作流设计，让来源、变量、分析和交付物可以被追踪。",
+    text: "参与 Atlaslab 的产品策略、工作流设计与评估框架梳理。项目目标是把论文、文件、表格数据、代码、报告和 agent chat 放进同一个可追踪的临床研究 workspace，服务临床研究团队的真实工作流。",
+    impact:
+      "将可靠性要求转化为 agent flow 与评估标准，包括工具选择、artifact verification、dataflow provenance、过早结束检测、延迟、token 成本和失败模式复盘。体现了产品判断、系统思维，以及面向非工程背景健康用户的沟通能力。",
+    meta: ["产品策略", "Agent flow 评估", "Provenance"],
+    platform: "Atlaslab",
+    tags: ["Agent Loop", "Desktop", "Planning", "Python"],
+  },
+  {
+    area: "可信 RAG",
+    title: "ChatDKU Mini Agentic RAG System",
+    short: "面向 DKU advising 文档的双语机构 RAG 系统，支持基于来源的回答与检索评估。",
+    text: "构建了基于 DKU advising 文档的双语 mini agentic RAG 系统，支持 PDF/DOCX 摄取、带来源元数据和页码的 chunking、关键词检索、向量检索、互联网 fallback，以及中英文 source-grounded answers。",
+    impact:
+      "实现 DSPy 路由与回答生成层，并通过 vLLM 本地服务模型，在不同 embedding 与本地 Qwen 模型上做可复现实验。比较关键词、向量和混合检索，并报告检索命中与回答关键词命中，而不是只展示 demo。",
+    meta: ["DSPy", "vLLM", "检索评估"],
+    platform: "ChatDKU RAG",
+    tags: ["RAG", "DSPy", "Bilingual", "Evaluation"],
+  },
+  {
+    area: "医疗 Agent",
+    title: "Xiao-X-Bao Medical Deep Search Agent",
+    short: "围绕确定性流程、research ledger 和引用验证构建的循证医学 research agent。",
+    text: "参与一个循证医学 deep research 系统，围绕 10 阶段流程展开：问题分类、研究规划、PubMed/知识检索、去重、证据提取、规则化引用验证、主题综合和 Markdown 报告生成。",
+    impact:
+      "围绕 Research Ledger 组织可靠性：记录每个阶段、source ID、PMID/DOI、摘要引用、claim support status、token 使用和最终报告 provenance。体现研究严谨性、证据处理能力和对高风险医学信息的风险意识。",
+    meta: ["10 阶段流程", "引用验证", "Research ledger"],
+    platform: "Medical Search",
+    tags: ["Medical AI", "PubMed", "Evidence", "Ledger"],
+  },
+  {
+    area: "健康隐私",
+    title: "Medical Desensitization Workspace",
+    short: "面向文本、PDF、图片和批量病历输入的隐私保护型健康 AI 预处理工具。",
+    text: "构建或参与医疗记录脱敏 workspace，处理粘贴文本、PDF、图片和批量上传内容，再将安全文本送入 AI chat workflow。",
+    impact:
+      "支持姓名、电话、身份证号、地址、病历号、出生日期、邮箱等敏感字段的自动和手动脱敏，并支持 Markdown 导出。把前后端实现能力和健康科技中的隐私约束连接起来。",
+    meta: ["隐私工作流", "PDF/图片/文本", "批量导出"],
+    platform: "Privacy Tool",
+    tags: ["Next.js", "Go Backend", "OCR", "Privacy"],
+  },
+  {
+    area: "Memory / RAG",
+    title: "memU Retrieval Layer Upgrade / Hybrid RAG Systems",
+    short: "围绕模块化 Top-K retrieval、dense retrieval、BM25、关键词检索和 RRF 的检索系统工作。",
+    text: "设计围绕模块化 Top-K retrieval、dense retrieval、BM25、关键词检索、hybrid ranking、reciprocal-rank-fusion 风格融合和检索质量评估的系统方向。",
+    impact:
+      "把检索质量作为可评估的系统问题处理，使用 ranking abstraction、recall-oriented metrics，并比较 sparse、dense 和 hybrid retrieval 的 trade-off。适合作为 AI、信息检索、数据和后端技术能力证据。",
+    meta: ["Hybrid retrieval", "RRF", "Recall@K / MRR"],
+    platform: "memU RAG",
+    tags: ["Hybrid RAG", "RRF", "Recall@K", "MRR"],
+  },
+  {
+    area: "合成生物学",
+    title: "iGEM Competition — 两届银牌",
+    short: "通过 L-DOPA gut simulation 和两届 iGEM 积累合成生物学与 wet-lab 背景。",
+    text: "研究工程化酵母在模拟肠道条件下的 L-DOPA 生产与稳定性，包括厌氧培养设置、培养基优化、荧光/HPLC 检测和微生物共培养约束。",
+    impact:
+      "两届 iGEM 经历带来了 plasmid construction、荧光蛋白验证、human practices、科学传播和团队协作经验。这是我关注健康 AI 的生物医学 grounding，而不是一条割裂的方向。",
+    meta: ["两届银牌", "L-DOPA", "Wet-lab grounding"],
+    platform: "iGEM",
+    tags: ["Synthetic Biology", "HPLC", "Wet Lab", "Team Lead"],
+  },
+  {
+    area: "生物医学研究",
+    title: "Drug Mechanism Research: LLPS and Autophagy",
+    short: "围绕 6J1、液-液相分离和自噬通路的分子机制研究。",
+    text: "参与药物 6J1 对 LLPS 与自噬通路影响的蛋白/细胞层面观察，包括机制假设和后续验证路径设计。",
+    impact:
+      "连接了自噬报告、LLPS 观察和 Western blot 后续验证规划等实验验证习惯。说明我理解生物医学数据和结论来自复杂实验系统。",
+    meta: ["LLPS", "Autophagy", "GFP-LC3"],
+    platform: "Drug Mechanism",
+    tags: ["Biomedical", "Mechanism", "Western Blot", "Cell Biology"],
+  },
+  {
+    area: "教学",
+    title: "CS201 Peer Tutor: OOP and Data Structures",
+    short: "围绕 Java OOP、数据结构、debugging 和作业支持进行 peer tutoring。",
+    text: "支持同学学习 Java OOP 和数据结构，包括 class design、继承/多态、接口、异常处理、数组、链表、栈、队列、哈希表、树、堆和排序。",
+    impact:
+      "通过帮助同学复现问题、缩小最小失败案例、分析边界条件和验证修复来指导 debugging。体现技术沟通、mentorship 和清楚解释复杂概念的能力。",
+    meta: ["Java", "Data Structures", "Debugging"],
+    platform: "CS201 Tutor",
+    tags: ["Teaching", "Java", "OOP", "Mentorship"],
+  },
+  {
+    area: "可观测性",
+    title: "LiteLLM Usage Monitor for Xiao-X-Bao",
+    short: "用于同步 usage、token/cost 监控、dashboard snapshot 和 alert workflow 的 AI 系统可观测性服务。",
+    text: "实现或参与 LiteLLM monitoring service，定期把每日 usage、requests、tokens、model/provider distribution 和 API-key breakdown 同步到本地 SQLite cache。",
+    impact:
+      "提供只读监控 API 和 React dashboard snapshot，展示 token usage、request count、人民币成本、活跃模型、providers 和更新时间，避免前端每次请求都查询 LiteLLM。体现部署意识：成本、可观测性、告警和运行可靠性。",
+    meta: ["Go + React", "SQLite cache", "Observability"],
+    platform: "Usage Monitor",
+    tags: ["Observability", "Cost", "Tokens", "Dashboard"],
+  },
+  {
+    area: "不确定性",
+    title: "Uncertainty-Aware RL / Forecasting Evaluation System",
+    short: "围绕不确定性预测评估的鲁棒性、校准和可复现项目。",
+    text: "构建可复现的 futures data 与实验 pipeline，包括 engineered features、按时间顺序的 train/calibration/test split、artifact storage，以及 conformal prediction intervals 的不确定性校准。",
+    impact:
+      "用 conformal prediction intervals 评估 uncertainty calibration，并在同一框架下比较模型，强调谨慎解释和 honest failure analysis。核心价值是方法论：robustness、calibration 和 reproducible evaluation。",
+    meta: ["Conformal prediction", "Calibration", "Reproducibility"],
+    platform: "Forecasting Eval",
+    tags: ["Robustness", "Evaluation", "Forecasting", "RL"],
+  },
+  {
+    area: "Responsible AI",
+    title: "Causality / Audit-Grade Evaluation-Layer AI Agent",
+    short: "把主观叙事拆解成可验证 claim 与 audit-friendly output 的 responsible AI 评估项目。",
+    text: "设计 audit-layer AI agent，用于评估已有的人类/AI sustainability narratives，将主观 claims 拆成可验证 statements、structured scorecards、evidence chains、conflict notes 和 greenwashing risk flags。",
+    impact:
+      "为缺失或冲突证据引入 pass/fail/uncertain labels，让输出在弱信息条件下更可解释、可复核。可迁移能力是 auditability 和 evidence evaluation，而不是 ESG 主题本身。",
+    meta: ["Evidence chain", "Uncertainty labels", "Auditability"],
+    platform: "Audit Agent",
+    tags: ["Responsible AI", "Evidence", "ESG", "Uncertainty"],
+  },
+  {
+    area: "产品 / 前端",
+    title: "Xiao-X-Bao Community / Hackathon Frontend Demo",
+    short: "支持社区健康 AI 协作 demo 的 React/TypeScript 产品界面。",
+    text: "构建 React/TypeScript 单页 demo 站点，组织小馨宝社区的任务市场、协作路径、公益价值、合作方模块、认证/dashboard/profile views 和可复用 UI 组件。",
+    impact:
+      "使用 Tailwind、Framer Motion、Lucide icons 和 route/state 结构，交付可本地预览的协作入口。体现产品沟通、前端执行，以及把技术工作讲清楚给用户看的能力。",
+    meta: ["React", "TypeScript", "Community UI"],
+    platform: "Community UI",
+    tags: ["Frontend", "Product", "Health Tech", "Demo"],
+  },
+  {
+    area: "全球健康",
+    title: "Stroke & Multimorbidity / Global Health Research",
+    short: "围绕 stroke、multimorbidity、community care 和 implementation settings 的全球健康研究方向。",
+    text: "参与 stroke、multimorbidity、community-based co-management、environmental enrichment 和 primary care settings 相关的全球健康研究方向。",
+    impact:
+      "连接 health equity、community-based intervention、implementation settings 和真实医疗系统。正式放入 CV 前仍需确认作者身份、投稿状态和具体贡献范围。",
+    meta: ["Stroke", "Multimorbidity", "Primary care"],
+    platform: "Global Health",
+    tags: ["Public Health", "Research", "Implementation", "Equity"],
+  },
+];
+
+const siteCopy = {
+  en: {
+    nav: ["Home", "Profile", "Experience Map", "Experience Details"],
+    heroEyebrow: "Yining Wang / Elina · DKU & Duke 2028",
+    heroTitle: "Yining Wang (Elina)'s",
+    heroTitleAccent: "Personal Website",
+    heroSubtitle: "I build and evaluate retrieval, agent, privacy, and monitoring workflows for biomedical and institutional information settings.",
+    heroMeta: "CS / Applied Math · AI, data, health-tech, research",
+    heroButton: "VIEW PROFILE",
+    profileTitle: "A coherent profile across",
+    profileTitleAccent: "CS and health",
+    profileIntro:
+      "I am a CS-oriented undergraduate with biomedical grounding. My projects connect retrieval systems, evidence verification, privacy workflows, observability, and biomedical context into one theme: making AI systems reliable enough for real information work.",
+    profileClosing:
+      "My background is interdisciplinary, but not random: CS gives me implementation tools, biomedical research gives me domain constraints, and student leadership/teaching gives me practice communicating technical work clearly.",
+    mapKicker: "Experience Map",
+    mapTitle: "Evidence behind the",
+    mapTitleAccent: "fit",
+    mapSubtitle:
+      "Select a card to see how each project proves a skill: implementation, research judgment, privacy awareness, communication, or execution.",
+    entryLabel: "Entry",
+    previous: "Previous",
+    next: "Next",
+    readFullEntry: "Read full entry",
+    missionOne:
+      "My strongest story is implementation with evaluation and biomedical context: building tools that can be tested explained and used responsibly.",
+    missionOneHighlight: ["implementation", "evaluation", "biomedical"],
+    missionTwo:
+      "I work across software AI data health-tech research and product-oriented technical projects where execution and clear communication both matter.",
+    missionTwoHighlight: ["software", "AI", "health-tech"],
+    detailsKicker: "Experience Details",
+    detailsTitle: "What I did, what it proves, and",
+    detailsTitleAccent: "where it fits",
+    ctaTitle: "Explore the full",
+    ctaTitleAccent: "profile",
+    ctaText:
+      "A concise view of my work across software engineering, AI/data systems, health technology, research, and product-adjacent technical projects.",
+    ctaPrimary: "Read Evidence",
+    ctaSecondary: "View Experience Map",
+    footer: "© 2026 Elina. CS / Applied Math · AI systems, biomedical information, and deployable tools.",
+    footerLinks: ["Privacy", "Terms", "Contact"],
+    profileFacts: profileFactsEn,
+    platformIcons: platformIconsEn,
+    experiences: experiencesEn,
+  },
+  zh: {
+    nav: ["首页", "简介", "经历地图", "经历详情"],
+    heroEyebrow: "王懿宁 / Elina · DKU & Duke 2028",
+    heroTitle: "王懿宁 (Elina) 的",
+    heroTitleAccent: "个人网站",
+    heroSubtitle: "我构建并评估面向生物医学与机构信息场景的检索、Agent、隐私和监控工作流。",
+    heroMeta: "CS / Applied Math · AI、数据、健康科技、研究",
+    heroButton: "查看简介",
+    profileTitle: "横跨",
+    profileTitleAccent: "CS 与健康领域的清晰画像",
+    profileIntro:
+      "我是一名以计算机科学为主线、具有生物医学背景的本科生。我的项目把检索系统、证据验证、隐私工作流、可观测性和生物医学语境连接到同一个主题：让 AI 系统足够可靠，能够支持真实的信息工作。",
+    profileClosing:
+      "我的背景是跨学科的，但不是分散的：CS 给我实现工具，生物医学研究让我理解领域约束，学生领导力和教学经历让我练习把技术工作讲清楚。",
+    mapKicker: "经历地图",
+    mapTitle: "证明能力的",
+    mapTitleAccent: "项目证据",
+    mapSubtitle: "点击卡片查看每个项目如何体现一种能力：工程实现、研究判断、隐私意识、沟通或执行。",
+    entryLabel: "经历",
+    previous: "上一个",
+    next: "下一个",
+    readFullEntry: "阅读完整经历",
+    missionOne: "我的核心故事是带有评估意识和生物医学语境的工程实现：构建可以被测试、解释并负责任使用的工具。",
+    missionOneHighlight: ["工程实现", "评估", "生物医学"],
+    missionTwo: "我参与软件、AI、数据、健康科技、研究和产品导向技术项目，重视执行力，也重视清晰沟通。",
+    missionTwoHighlight: ["软件", "AI", "健康科技"],
+    detailsKicker: "经历详情",
+    detailsTitle: "我做了什么、证明了什么，以及",
+    detailsTitleAccent: "它适合哪里",
+    ctaTitle: "查看完整",
+    ctaTitleAccent: "个人资料",
+    ctaText: "这里概览了我在软件工程、AI/数据系统、健康科技、研究和产品导向技术项目中的经历。",
+    ctaPrimary: "阅读证据",
+    ctaSecondary: "查看经历地图",
+    footer: "© 2026 Elina. CS / Applied Math · AI 系统、生物医学信息与可部署工具。",
+    footerLinks: ["隐私", "条款", "联系"],
+    profileFacts: profileFactsZh,
+    platformIcons: platformIconsZh,
+    experiences: experiencesZh,
+  },
+};
+
 function Logo({ className }: { className?: string }) {
   return (
     <div className={cn("grid h-7 w-7 place-items-center rounded-full border-2 border-foreground/60", className)}>
@@ -247,12 +511,20 @@ function Logo({ className }: { className?: string }) {
   );
 }
 
-function Navbar() {
+function Navbar({
+  copy,
+  language,
+  onLanguageChange,
+}: {
+  copy: (typeof siteCopy)[Language];
+  language: Language;
+  onLanguageChange: (language: Language) => void;
+}) {
   const links = [
-    { label: "Home", href: "#home" },
-    { label: "Profile", href: "#profile" },
-    { label: "Experience Map", href: "#experience-map" },
-    { label: "Experience Details", href: "#experience-details" },
+    { label: copy.nav[0], href: "#home" },
+    { label: copy.nav[1], href: "#profile" },
+    { label: copy.nav[2], href: "#experience-map" },
+    { label: copy.nav[3], href: "#experience-details" },
   ];
   return (
     <nav className="fixed left-0 right-0 top-0 z-50 flex items-center justify-between px-8 py-4 md:px-28">
@@ -271,6 +543,22 @@ function Navbar() {
         ))}
       </div>
       <div className="flex items-center gap-2">
+        <div className="liquid-glass flex rounded-full p-1 text-xs font-semibold text-muted-foreground">
+          <button
+            className={cn("rounded-full px-3 py-2 transition", language === "en" && "bg-foreground text-background")}
+            onClick={() => onLanguageChange("en")}
+            type="button"
+          >
+            EN
+          </button>
+          <button
+            className={cn("rounded-full px-3 py-2 transition", language === "zh" && "bg-foreground text-background")}
+            onClick={() => onLanguageChange("zh")}
+            type="button"
+          >
+            中文
+          </button>
+        </div>
         <Button aria-label="GitHub profile" className="rounded-full" size="icon" variant="glass" onClick={() => window.open(githubUrl, "_blank", "noopener,noreferrer")}>
           <Github className="h-4 w-4" />
         </Button>
@@ -285,7 +573,7 @@ function Navbar() {
   );
 }
 
-function Hero() {
+function Hero({ copy }: { copy: (typeof siteCopy)[Language] }) {
   return (
     <section className="relative flex min-h-screen items-center overflow-hidden px-6 pt-28 md:px-28 md:pt-32" id="home">
       <video
@@ -310,23 +598,23 @@ function Hero() {
               />
             ))}
           </div>
-          <p className="text-sm text-muted-foreground">Yining Wang / 王懿宁 · DKU & Duke 2028</p>
+          <p className="text-sm text-muted-foreground">{copy.heroEyebrow}</p>
         </div>
         <h1 className="text-5xl font-medium tracking-[-2px] md:text-7xl lg:text-8xl">
-          Yining Wang (Elina)'s <span className="font-serif italic font-normal">Personal Website</span>
+          {copy.heroTitle} <span className="font-serif italic font-normal">{copy.heroTitleAccent}</span>
         </h1>
         <p className="mx-auto mt-8 max-w-3xl text-lg leading-8 text-[hsl(var(--hero-subtitle))]">
-          I build and evaluate retrieval, agent, privacy, and monitoring workflows for biomedical and institutional information settings.
+          {copy.heroSubtitle}
         </p>
         <motion.div className="liquid-glass mx-auto mt-10 flex max-w-lg items-center justify-between rounded-full p-2" {...fadeUp(0.15)}>
-          <span className="px-5 text-left text-sm text-muted-foreground">CS / Applied Math · AI, data, health-tech, research</span>
+          <span className="px-5 text-left text-sm text-muted-foreground">{copy.heroMeta}</span>
           <motion.a
             className="rounded-full bg-foreground px-8 py-3 text-sm font-bold text-background"
             href="#profile"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.98 }}
           >
-            VIEW PROFILE
+            {copy.heroButton}
           </motion.a>
         </motion.div>
       </motion.div>
@@ -387,27 +675,27 @@ function PlatformBlock({
   );
 }
 
-function ExperienceMap() {
+function ExperienceMap({ copy }: { copy: (typeof siteCopy)[Language] }) {
   const [activeIndex, setActiveIndex] = useState(0);
-  const activeExperience = experiences[activeIndex];
+  const activeExperience = copy.experiences[activeIndex];
   const [jumperLeft, jumperTop] = platformPositions[activeIndex];
   const activeColor = experienceColors[activeIndex];
   const detailPanelTop = `clamp(1.5rem, calc(${jumperTop} - 6rem), calc(100% - 24rem))`;
   const score = String(activeIndex + 1).padStart(2, "0");
 
   const hop = (direction: 1 | -1) => {
-    setActiveIndex((current) => (current + direction + experiences.length) % experiences.length);
+    setActiveIndex((current) => (current + direction + copy.experiences.length) % copy.experiences.length);
   };
 
   return (
     <section className="relative overflow-hidden border-t border-border/30 px-6 py-32 md:px-28 md:py-44" id="experience-map">
       <motion.div className="mx-auto max-w-4xl text-center" {...fadeUp(0)}>
-        <p className="mb-4 text-xs font-bold uppercase tracking-[3px] text-muted-foreground">Experience Map</p>
+        <p className="mb-4 text-xs font-bold uppercase tracking-[3px] text-muted-foreground">{copy.mapKicker}</p>
         <h2 className="text-5xl font-medium tracking-[-1px] md:text-7xl lg:text-8xl">
-          Evidence behind the <span className="font-serif italic font-normal">fit</span>
+          {copy.mapTitle} <span className="font-serif italic font-normal">{copy.mapTitleAccent}</span>
         </h2>
         <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-muted-foreground">
-          Select a card to see how each project proves a skill: implementation, research judgment, privacy awareness, communication, or execution.
+          {copy.mapSubtitle}
         </p>
       </motion.div>
       <div className="mx-auto mt-20 flex max-w-7xl flex-col gap-6 lg:flex-row lg:items-start">
@@ -444,7 +732,7 @@ function ExperienceMap() {
             transition={{ type: "spring", stiffness: 120, damping: 16 }}
             src="/assets/jumper.svg"
           />
-          {experiences.map((experience, index) => (
+          {copy.experiences.map((experience, index) => (
             <PlatformBlock
               active={index === activeIndex}
               color={experienceColors[index]}
@@ -470,22 +758,22 @@ function ExperienceMap() {
             <div className="flex flex-wrap items-center justify-between gap-4">
               <div>
                 <p className="text-xs font-bold uppercase tracking-[3px] text-muted-foreground">
-                  Entry {score} / {experiences.length} · {activeExperience.area}
+                  {copy.entryLabel} {score} / {copy.experiences.length} · {activeExperience.area}
                 </p>
                 <h3 className="mt-2 text-xl font-semibold md:text-2xl">{activeExperience.title}</h3>
               </div>
               <div className="flex gap-2">
                 <Button className="h-10 px-4" onClick={() => hop(-1)} type="button" variant="glass">
-                  Previous
+                  {copy.previous}
                 </Button>
                 <Button className="h-10 px-4" onClick={() => hop(1)} type="button">
-                  Next
+                  {copy.next}
                 </Button>
               </div>
             </div>
             <p className="mt-4 text-sm leading-7 text-muted-foreground">{activeExperience.short}</p>
             <a className="mt-4 inline-flex text-sm font-semibold text-foreground underline-offset-4 hover:underline" href={`#exp-${activeIndex + 1}`}>
-              Read full entry
+              {copy.readFullEntry}
             </a>
           </motion.aside>
         </div>
@@ -494,24 +782,24 @@ function ExperienceMap() {
   );
 }
 
-function SignalSection() {
+function SignalSection({ copy }: { copy: (typeof siteCopy)[Language] }) {
   return (
     <section className="px-6 py-32 text-center md:px-28 md:py-44" id="profile">
       <motion.h2 className="text-5xl font-medium tracking-[-1px] md:text-7xl lg:text-8xl" {...fadeUp(0)}>
-        A coherent profile across <span className="font-serif italic font-normal">CS and health</span>
+        {copy.profileTitle} <span className="font-serif italic font-normal">{copy.profileTitleAccent}</span>
       </motion.h2>
       <motion.p className="mx-auto mt-8 mb-24 max-w-2xl text-lg leading-8 text-muted-foreground" {...fadeUp(0.1)}>
-        I am a CS-oriented undergraduate with biomedical grounding. My projects connect retrieval systems, evidence verification, privacy workflows, observability, and biomedical context into one theme: making AI systems reliable enough for real information work.
+        {copy.profileIntro}
       </motion.p>
       <motion.div className="mx-auto mb-20 grid max-w-4xl gap-3 text-left sm:grid-cols-2" {...fadeUp(0.16)}>
-        {profileFacts.map((fact) => (
+        {copy.profileFacts.map((fact) => (
           <div className="liquid-glass rounded-xl px-4 py-3 text-sm text-muted-foreground" key={fact}>
             {fact}
           </div>
         ))}
       </motion.div>
       <div className="mx-auto mb-20 grid max-w-5xl gap-12 md:grid-cols-3 md:gap-8">
-        {platformIcons.map((item, index) => (
+        {copy.platformIcons.map((item, index) => (
           <motion.div className="text-center" key={item.name} {...fadeUp(index * 0.1)}>
             <img alt="" className="mx-auto h-[200px] w-[200px] object-contain" src={item.image} />
             <h3 className="mt-6 text-base font-semibold">{item.name}</h3>
@@ -520,7 +808,7 @@ function SignalSection() {
         ))}
       </div>
       <motion.p className="text-center text-sm text-muted-foreground" {...fadeUp(0.2)}>
-        My background is interdisciplinary, but not random: CS gives me implementation tools, biomedical research gives me domain constraints, and student leadership/teaching gives me practice communicating technical work clearly.
+        {copy.profileClosing}
       </motion.p>
     </section>
   );
@@ -575,7 +863,7 @@ function RevealWord({
   );
 }
 
-function Mission() {
+function Mission({ copy }: { copy: (typeof siteCopy)[Language] }) {
   return (
     <section className="px-6 pt-0 pb-32 md:px-28 md:pb-44">
       <motion.video
@@ -589,13 +877,13 @@ function Mission() {
       />
       <div className="mx-auto mt-16 max-w-5xl">
         <WordReveal
-          highlight={["implementation", "evaluation", "biomedical"]}
-          text="My strongest story is implementation with evaluation and biomedical context: building tools that can be tested explained and used responsibly."
+          highlight={copy.missionOneHighlight}
+          text={copy.missionOne}
         />
         <div className="mt-10">
           <WordReveal
-            highlight={["software", "AI", "health-tech"]}
-            text="I work across software AI data health-tech research and product-oriented technical projects where execution and clear communication both matter."
+            highlight={copy.missionTwoHighlight}
+            text={copy.missionTwo}
           />
         </div>
       </div>
@@ -603,13 +891,13 @@ function Mission() {
   );
 }
 
-function ExperienceWiki() {
+function ExperienceWiki({ copy }: { copy: (typeof siteCopy)[Language] }) {
   return (
     <section className="border-t border-border/30 px-6 py-32 md:px-28 md:py-44" id="experience-details">
       <motion.div className="mx-auto max-w-4xl text-center" {...fadeUp(0)}>
-        <p className="mb-4 text-xs font-bold uppercase tracking-[3px] text-muted-foreground">Experience Details</p>
+        <p className="mb-4 text-xs font-bold uppercase tracking-[3px] text-muted-foreground">{copy.detailsKicker}</p>
         <h2 className="text-4xl font-medium tracking-[-1px] md:text-6xl">
-          What I did, what it proves, and <span className="font-serif italic font-normal">where it fits</span>
+          {copy.detailsTitle} <span className="font-serif italic font-normal">{copy.detailsTitleAccent}</span>
         </h2>
       </motion.div>
       <motion.video
@@ -622,7 +910,7 @@ function ExperienceWiki() {
         {...fadeUp(0.1)}
       />
       <div className="mx-auto mt-16 grid max-w-6xl gap-5">
-        {experiences.map((experience, index) => (
+        {copy.experiences.map((experience, index) => (
           <motion.article className="liquid-glass rounded-2xl p-6 md:p-8" id={`exp-${index + 1}`} key={experience.title} {...fadeUp(0.04 * index)}>
             <div className="flex flex-wrap items-start justify-between gap-4">
               <div>
@@ -671,7 +959,7 @@ function HlsBackground() {
   return <video ref={videoRef} autoPlay className="absolute inset-0 z-0 h-full w-full object-cover brightness-110 saturate-125" loop muted playsInline />;
 }
 
-function CTA() {
+function CTA({ copy }: { copy: (typeof siteCopy)[Language] }) {
   return (
     <section className="relative overflow-hidden border-t border-border/30 px-6 py-32 text-center md:px-28 md:py-44">
       <HlsBackground />
@@ -679,17 +967,17 @@ function CTA() {
       <motion.div className="relative z-10 mx-auto max-w-3xl" {...fadeUp(0)}>
         <Logo className="mx-auto h-10 w-10" />
         <h2 className="mt-8 text-4xl font-medium md:text-6xl">
-          Explore the full <span className="font-serif italic font-normal">profile</span>
+          {copy.ctaTitle} <span className="font-serif italic font-normal">{copy.ctaTitleAccent}</span>
         </h2>
         <p className="mx-auto mt-6 max-w-2xl leading-8 text-muted-foreground">
-          A concise view of my work across software engineering, AI/data systems, health technology, research, and product-adjacent technical projects.
+          {copy.ctaText}
         </p>
         <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
           <a className="inline-flex rounded-lg bg-foreground px-8 py-3.5 text-sm font-semibold text-background" href="#experience-details">
-            Read Evidence
+            {copy.ctaPrimary}
           </a>
           <a className="liquid-glass inline-flex rounded-lg px-8 py-3.5 text-sm font-semibold text-foreground" href="#experience-map">
-            View Experience Map
+            {copy.ctaSecondary}
           </a>
         </div>
       </motion.div>
@@ -697,12 +985,12 @@ function CTA() {
   );
 }
 
-function Footer() {
+function Footer({ copy }: { copy: (typeof siteCopy)[Language] }) {
   return (
     <footer className="flex flex-col justify-between gap-6 px-8 py-12 text-sm text-muted-foreground md:flex-row md:px-28">
-      <p>© 2026 Elina. CS / Applied Math · AI systems, biomedical information, and deployable tools.</p>
+      <p>{copy.footer}</p>
       <div className="flex gap-6">
-        {["Privacy", "Terms", "Contact"].map((item) => (
+        {copy.footerLinks.map((item) => (
           <a className="transition hover:text-foreground" href="#" key={item}>
             {item}
           </a>
@@ -713,16 +1001,19 @@ function Footer() {
 }
 
 export default function App() {
+  const [language, setLanguage] = useState<Language>("en");
+  const copy = siteCopy[language];
+
   return (
     <main className="min-h-screen bg-background text-foreground">
-      <Navbar />
-      <Hero />
-      <SignalSection />
-      <ExperienceMap />
-      <Mission />
-      <ExperienceWiki />
-      <CTA />
-      <Footer />
+      <Navbar copy={copy} language={language} onLanguageChange={setLanguage} />
+      <Hero copy={copy} />
+      <SignalSection copy={copy} />
+      <ExperienceMap copy={copy} />
+      <Mission copy={copy} />
+      <ExperienceWiki copy={copy} />
+      <CTA copy={copy} />
+      <Footer copy={copy} />
     </main>
   );
 }
