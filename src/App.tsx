@@ -20,7 +20,9 @@ const profileFacts = [
   "Computer Science / Applied Mathematics",
   "GPA 3.811",
   "TOEFL 111 / IELTS 7.5",
-  "AI for Biomedicine · Biomedical Data Science · RAG Systems",
+  "Software · AI/data · health technology · research · product-oriented technical work",
+  "Core strengths: implementation, retrieval evaluation, biomedical context, communication",
+  "Focus: trustworthy, deployable AI systems for health and biomedical information",
 ];
 
 const fadeUp = (delay: number) => ({
@@ -45,22 +47,22 @@ const experiences: Experience[] = [
   {
     area: "Clinical AI",
     title: "Atlaslab IDE / Verifiable AI Agents for Clinical Research",
-    short: "Clinical AI workspace integrating files, literature workflows, code, reports, and agent chat into an evidence-traceable environment.",
-    text: "Contributed to framing a local medical research AI workspace that integrates files, literature workflows, tabular data, code, notebooks, reports, and agent chat into one evidence-traceable environment for clinical research teams.",
+    short: "Product and workflow design for a local clinical-research AI workspace that keeps sources, variables, analysis, and deliverables traceable.",
+    text: "Contributed to product strategy, workflow design, and evaluation framing for a local medical research AI workspace that brings papers, files, tabular data, code, reports, and agent chat into one evidence-traceable environment for clinical research teams.",
     impact:
-      "Mapped reliability requirements into agent-flow designs and evaluation criteria covering tool selection, artifact verification, dataflow provenance, premature-finish prevention, latency, token cost, and failure-mode review.",
-    meta: ["Agent-flow evaluation", "Provenance", "Clinical workflow"],
+      "Mapped reliability requirements into agent-flow designs and evaluation criteria covering tool selection, artifact verification, dataflow provenance, premature-finish prevention, latency, token cost, and failure-mode review. Demonstrates product judgment, systems thinking, and communication with non-engineer health users.",
+    meta: ["Product strategy", "Agent-flow evaluation", "Provenance"],
     platform: "Atlaslab",
     tags: ["Agent Loop", "Desktop", "Planning", "Python"],
   },
   {
     area: "Trustworthy RAG",
     title: "ChatDKU Mini Agentic RAG System",
-    short: "Bilingual institutional RAG system with ingestion, retrieval, routing, source-grounded answering, and evaluation.",
+    short: "Bilingual institutional RAG system for DKU advising documents, with source-grounded answering and retrieval evaluation.",
     text: "Built a bilingual mini agentic RAG system over DKU advising documents, supporting PDF/DOCX ingestion, chunking with source metadata and page numbers, keyword search, vector search, internet fallback, and source-grounded answers in English and Chinese.",
     impact:
-      "Implemented a DSPy layer for routing and answer generation, with local LLM serving through vLLM and reproducible evaluation across embedding models and local Qwen models.",
-    meta: ["PDF/DOCX", "Vector search", "Local LLM"],
+      "Implemented a DSPy layer for routing and answer generation, with local LLM serving through vLLM and reproducible evaluation across embedding models and local Qwen models. Compared keyword, vector, and hybrid retrieval; reported retrieval hit rate and answer keyword-hit results instead of only showing a demo.",
+    meta: ["DSPy", "vLLM", "Retrieval evaluation"],
     platform: "ChatDKU RAG",
     tags: ["RAG", "DSPy", "Bilingual", "Evaluation"],
   },
@@ -70,7 +72,7 @@ const experiences: Experience[] = [
     short: "Evidence-based medical research agent organized around a deterministic pipeline, research ledger, and citation verification.",
     text: "Contributed to an evidence-based medical deep research system built around a deterministic 10-stage pipeline: question classification, research planning, PubMed/knowledge search, deduplication, evidence extraction, rule-based citation verification, thematic synthesis, and Markdown report generation.",
     impact:
-      "Framed reliability around a Research Ledger that records every stage, source ID, PMID/DOI, abstract quote, claim support status, token usage, and final report provenance.",
+      "Framed reliability around a Research Ledger that records every stage, source ID, PMID/DOI, abstract quote, claim support status, token usage, and final report provenance. Shows research discipline, evidence handling, and awareness of high-stakes medical information risk.",
     meta: ["10-stage pipeline", "Citation verifier", "Research ledger"],
     platform: "Medical Search",
     tags: ["Medical AI", "PubMed", "Evidence", "Ledger"],
@@ -81,18 +83,18 @@ const experiences: Experience[] = [
     short: "Privacy-preserving health AI preprocessing workspace for text, PDF, image, and batch medical-record inputs.",
     text: "Built or contributed to a medical-record desensitization workspace that processes pasted text, PDFs, images, and batch uploads before sending safe text into an AI chat workflow.",
     impact:
-      "Supported automatic and manual redaction of sensitive fields including names, phone numbers, ID numbers, addresses, medical record numbers, birth dates, and emails, with Markdown export for downstream use.",
-    meta: ["PDF/image/text", "Batch export", "Manual rules"],
-    platform: "Desensitize",
+      "Supported automatic and manual redaction of sensitive fields including names, phone numbers, ID numbers, addresses, medical record numbers, birth dates, and emails, with Markdown export for downstream use. Connects frontend/backend implementation with practical privacy constraints in health-tech workflows.",
+    meta: ["Privacy workflow", "PDF/image/text", "Batch export"],
+    platform: "Privacy Tool",
     tags: ["Next.js", "Go Backend", "OCR", "Privacy"],
   },
   {
     area: "Memory / RAG",
     title: "memU Retrieval Layer Upgrade / Hybrid RAG Systems",
-    short: "Hybrid retrieval direction for modular Top-K retrieval, dense retrieval, BM25, keyword retrieval, and reciprocal-rank-fusion.",
+    short: "Retrieval-systems work around modular Top-K retrieval, dense retrieval, BM25, keyword retrieval, and reciprocal-rank fusion.",
     text: "Designed a retrieval systems direction around modular Top-K retrieval, dense retrieval, BM25, keyword retrieval, hybrid ranking, reciprocal-rank-fusion style fusion, and retrieval-quality evaluation.",
     impact:
-      "Positioned retrieval quality as an evaluable systems problem using ranking abstractions, recall-oriented metrics, and trade-off analysis across sparse, dense, and hybrid retrieval.",
+      "Positioned retrieval quality as an evaluable systems problem using ranking abstractions, recall-oriented metrics, and trade-off analysis across sparse, dense, and hybrid retrieval. Useful evidence for AI, information retrieval, data, and backend-oriented technical work.",
     meta: ["Hybrid retrieval", "RRF", "Recall@K / MRR"],
     platform: "memU RAG",
     tags: ["Hybrid RAG", "RRF", "Recall@K", "MRR"],
@@ -103,8 +105,8 @@ const experiences: Experience[] = [
     short: "Synthetic biology and wet-lab grounding through L-DOPA gut simulation and two iGEM competition cycles.",
     text: "Investigated L-DOPA production and stability in simulated gut conditions using engineered yeast, anaerobic culture setup, media optimization, fluorescence/HPLC-based detection, and microbial co-culture constraints.",
     impact:
-      "Built wet-lab grounding across two iGEM cycles, spanning plasmid construction, fluorescence-protein validation, human-practices research, scientific communication, and team coordination.",
-    meta: ["Two-time Silver", "L-DOPA", "Gut simulation"],
+      "Built wet-lab grounding across two iGEM cycles, spanning plasmid construction, fluorescence-protein validation, human-practices research, scientific communication, and team coordination. This is the biomedical grounding behind my interest in health AI, not a separate unrelated direction.",
+    meta: ["Two-time Silver", "L-DOPA", "Wet-lab grounding"],
     platform: "iGEM",
     tags: ["Synthetic Biology", "HPLC", "Wet Lab", "Team Lead"],
   },
@@ -114,9 +116,9 @@ const experiences: Experience[] = [
     short: "Molecular mechanism research around 6J1, liquid-liquid phase separation, and autophagy pathways.",
     text: "Worked around protein/cell-level observations of how drug 6J1 may affect liquid-liquid phase separation and autophagy pathways, including mechanism hypotheses and downstream validation planning.",
     impact:
-      "Connected biomedical mechanism research with experimental validation habits, including autophagy reporting, LLPS observation, and downstream Western blot validation planning.",
+      "Connected biomedical mechanism research with experimental validation habits, including autophagy reporting, LLPS observation, and downstream Western blot validation planning. Shows that I understand biomedical data and claims come from complex experimental systems.",
     meta: ["LLPS", "Autophagy", "GFP-LC3"],
-    platform: "Drug Mech.",
+    platform: "Drug Mechanism",
     tags: ["Biomedical", "Mechanism", "Western Blot", "Cell Biology"],
   },
   {
@@ -125,7 +127,7 @@ const experiences: Experience[] = [
     short: "Peer tutoring in Java OOP, data structures, debugging workflows, and assignment support.",
     text: "Supported students in Java OOP and data structures topics including class design, inheritance/polymorphism, interfaces, exception handling, arrays, linked lists, stacks, queues, hash tables, trees, heaps, and sorting.",
     impact:
-      "Guided debugging by helping students reproduce issues, isolate minimal failing cases, reason about edge conditions, and verify fixes through regression-style checks.",
+      "Guided debugging by helping students reproduce issues, isolate minimal failing cases, reason about edge conditions, and verify fixes through regression-style checks. Demonstrates communication, mentorship, and the ability to explain technical concepts clearly.",
     meta: ["Java", "Data Structures", "Debugging"],
     platform: "CS201 Tutor",
     tags: ["Teaching", "Java", "OOP", "Mentorship"],
@@ -136,9 +138,9 @@ const experiences: Experience[] = [
     short: "AI system observability service for usage sync, cost/token monitoring, dashboard snapshots, and alert workflows.",
     text: "Implemented or contributed to a LiteLLM monitoring service that periodically syncs daily usage, requests, tokens, model/provider distribution, and API-key breakdowns into a local SQLite cache.",
     impact:
-      "Exposed read-only monitoring APIs and a React dashboard snapshot for token usage, request count, RMB cost, active models, providers, and update time without querying LiteLLM on each frontend request.",
-    meta: ["Go + React", "SQLite cache", "Alerts"],
-    platform: "Monitor",
+      "Exposed read-only monitoring APIs and a React dashboard snapshot for token usage, request count, RMB cost, active models, providers, and update time without querying LiteLLM on each frontend request. Shows deployment awareness: cost, observability, alerts, and operational reliability.",
+    meta: ["Go + React", "SQLite cache", "Observability"],
+    platform: "Usage Monitor",
     tags: ["Observability", "Cost", "Tokens", "Dashboard"],
   },
   {
@@ -147,9 +149,9 @@ const experiences: Experience[] = [
     short: "Robustness, calibration, and reproducibility project using uncertainty-aware forecasting evaluation.",
     text: "Built a reproducible futures data and experimentation pipeline with engineered features, chronological train/calibration/test splits, organized artifact storage, and uncertainty calibration through conformal prediction intervals.",
     impact:
-      "Evaluated uncertainty calibration with conformal prediction intervals and compared models under the same uncertainty framework, emphasizing cautious interpretation and honest failure analysis.",
+      "Evaluated uncertainty calibration with conformal prediction intervals and compared models under the same uncertainty framework, emphasizing cautious interpretation and honest failure analysis. The relevance is methodology: robustness, calibration, and reproducible evaluation.",
     meta: ["Conformal prediction", "Calibration", "Reproducibility"],
-    platform: "Uncertainty",
+    platform: "Forecasting Eval",
     tags: ["Robustness", "Evaluation", "Forecasting", "RL"],
   },
   {
@@ -158,7 +160,7 @@ const experiences: Experience[] = [
     short: "Responsible AI evaluation project decomposing subjective narratives into verifiable claims and audit-friendly outputs.",
     text: "Designed an audit-layer AI agent that evaluates existing human/AI sustainability narratives by decomposing subjective claims into verifiable statements, structured scorecards, evidence chains, conflict notes, and greenwashing risk flags.",
     impact:
-      "Introduced explicit pass/fail/uncertain labels for missing or conflicting evidence, making the output more interpretable and reviewable under weak-information conditions.",
+      "Introduced explicit pass/fail/uncertain labels for missing or conflicting evidence, making the output more interpretable and reviewable under weak-information conditions. The transferable skill is auditability and evidence evaluation, not the ESG topic itself.",
     meta: ["Evidence chain", "Uncertainty labels", "Auditability"],
     platform: "Audit Agent",
     tags: ["Responsible AI", "Evidence", "ESG", "Uncertainty"],
@@ -169,7 +171,7 @@ const experiences: Experience[] = [
     short: "React/TypeScript product interface supporting a community health-AI collaboration demo.",
     text: "Built a React/TypeScript single-page demo site for the Xiao-X-Bao community, organizing task marketplace, collaboration paths, public-interest value, partner modules, authentication/dashboard/profile views, and reusable UI components.",
     impact:
-      "Used Tailwind, Framer Motion, Lucide icons, and route/state structure to deliver a polished local preview and collaboration entry point aligned with the public community website.",
+      "Used Tailwind, Framer Motion, Lucide icons, and route/state structure to deliver a polished local preview and collaboration entry point aligned with the public community website. Demonstrates product communication, frontend execution, and ability to make technical work understandable to users.",
     meta: ["React", "TypeScript", "Community UI"],
     platform: "Community UI",
     tags: ["Frontend", "Product", "Health Tech", "Demo"],
@@ -180,7 +182,7 @@ const experiences: Experience[] = [
     short: "Global health research direction around stroke, multimorbidity, community care, and implementation settings.",
     text: "Worked with a global health research direction around stroke, multimorbidity, community-based co-management, environmental enrichment, and primary care settings.",
     impact:
-      "Connects health equity, community-based intervention, implementation settings, and real-world healthcare systems; author role, submission status, and contribution scope should be confirmed before formal CV use.",
+      "Connects health equity, community-based intervention, implementation settings, and real-world healthcare systems. Author role, submission status, and exact contribution should be confirmed before this appears in a formal CV.",
     meta: ["Stroke", "Multimorbidity", "Primary care"],
     platform: "Global Health",
     tags: ["Public Health", "Research", "Implementation", "Equity"],
@@ -203,21 +205,37 @@ const platformPositions = [
   ["16%", "90%"],
 ];
 
+const experienceColors = [
+  "#60a5fa",
+  "#34d399",
+  "#f472b6",
+  "#fbbf24",
+  "#a78bfa",
+  "#fb7185",
+  "#22d3ee",
+  "#f97316",
+  "#4ade80",
+  "#c084fc",
+  "#38bdf8",
+  "#facc15",
+  "#2dd4bf",
+];
+
 const platformIcons = [
   {
     image: "/assets/icon-chatgpt.png",
-    name: "Trustworthy RAG",
-    description: "Retrieval, grounding, citation correctness, and long-tail query handling.",
+    name: "Technical implementation",
+    description: "Built RAG, frontend/backend, monitoring, and workflow tools with Python, TypeScript/React, Go, DSPy, vLLM, and retrieval pipelines.",
   },
   {
     image: "/assets/icon-perplexity.png",
-    name: "Evidence Workflow",
-    description: "Research ledgers, auditability, provenance chains, and verified outputs.",
+    name: "Research and evaluation",
+    description: "Designed evaluation criteria, citation checks, research ledgers, uncertainty calibration, and retrieval metrics instead of relying on demos alone.",
   },
   {
     image: "/assets/icon-google.png",
-    name: "Deployable Systems",
-    description: "Privacy, observability, user workflows, and real-world adoption constraints.",
+    name: "Communication and leadership",
+    description: "Explained CS concepts as a peer tutor, coordinated iGEM work, and translated health-AI ideas into user-facing workflows and materials.",
   },
 ];
 
@@ -230,7 +248,12 @@ function Logo({ className }: { className?: string }) {
 }
 
 function Navbar() {
-  const links = ["Home", "How It Works", "Philosophy", "Use Cases"];
+  const links = [
+    { label: "Home", href: "#home" },
+    { label: "Profile", href: "#profile" },
+    { label: "Experience Map", href: "#experience-map" },
+    { label: "Experience Details", href: "#experience-details" },
+  ];
   return (
     <nav className="fixed left-0 right-0 top-0 z-50 flex items-center justify-between px-8 py-4 md:px-28">
       <a href="#home" className="flex items-center gap-3 text-sm font-bold">
@@ -239,10 +262,10 @@ function Navbar() {
       </a>
       <div className="hidden items-center gap-3 text-sm md:flex">
         {links.map((link, index) => (
-          <div className="flex items-center gap-3" key={link}>
+          <div className="flex items-center gap-3" key={link.label}>
             {index > 0 ? <span className="text-muted-foreground">•</span> : null}
-            <a className="text-muted-foreground transition hover:text-foreground" href={`#${link.toLowerCase().replace(/\s+/g, "-")}`}>
-              {link}
+            <a className="text-muted-foreground transition hover:text-foreground" href={link.href}>
+              {link.label}
             </a>
           </div>
         ))}
@@ -287,16 +310,16 @@ function Hero() {
               />
             ))}
           </div>
-          <p className="text-sm text-muted-foreground">Yining Wang / 王懿宁 · GPA 3.811</p>
+          <p className="text-sm text-muted-foreground">Yining Wang / 王懿宁 · DKU & Duke 2028</p>
         </div>
         <h1 className="text-5xl font-medium tracking-[-2px] md:text-7xl lg:text-8xl">
-          Elina <span className="font-serif italic font-normal">跳一跳</span>
+          Yining Wang (Elina)'s <span className="font-serif italic font-normal">Personal Website</span>
         </h1>
         <p className="mx-auto mt-8 max-w-3xl text-lg leading-8 text-[hsl(var(--hero-subtitle))]">
-          AI for biomedicine, information retrieval, NLP, and deployable research systems.
+          I build and evaluate retrieval, agent, privacy, and monitoring workflows for biomedical and institutional information settings.
         </p>
         <motion.div className="liquid-glass mx-auto mt-10 flex max-w-lg items-center justify-between rounded-full p-2" {...fadeUp(0.15)}>
-          <span className="px-5 text-left text-sm text-muted-foreground">DKU & Duke 2028 · CS / Applied Math · TOEFL 111</span>
+          <span className="px-5 text-left text-sm text-muted-foreground">CS / Applied Math · AI, data, health-tech, research</span>
           <motion.a
             className="rounded-full bg-foreground px-8 py-3 text-sm font-bold text-background"
             href="#profile"
@@ -315,23 +338,32 @@ function PlatformBlock({
   experience,
   index,
   active,
+  color,
   onSelect,
 }: {
   experience: Experience;
   index: number;
   active: boolean;
+  color: string;
   onSelect: (index: number) => void;
 }) {
   const [left, top] = platformPositions[index];
   return (
     <motion.button
-      aria-label={`Jump to ${experience.title}`}
+      aria-label={`View ${experience.title}`}
       className={cn(
-        "group absolute h-24 w-32 -translate-x-1/2 -translate-y-1/2 rounded-lg bg-card text-left text-card-foreground shadow-[10px_12px_0_#1f1f1f,0_22px_40px_rgba(255,255,255,0.05)]",
-        active && "ring-2 ring-foreground",
+        "group absolute h-24 w-32 -translate-x-1/2 -translate-y-1/2 rounded-lg border text-left text-card-foreground shadow-[10px_12px_0_rgba(0,0,0,0.55),0_22px_40px_rgba(255,255,255,0.05)]",
+        active ? "z-50 ring-2" : "z-40",
       )}
       onClick={() => onSelect(index)}
-      style={{ left, top }}
+      style={{
+        left,
+        top,
+        backgroundColor: active ? `${color}24` : "hsl(var(--card))",
+        borderColor: active ? color : "rgba(255,255,255,0.18)",
+        boxShadow: active ? `10px 12px 0 rgba(0,0,0,0.55), 0 0 34px ${color}66` : undefined,
+        ["--experience-color" as string]: color,
+      }}
       type="button"
       whileHover={{ y: -8, scale: 1.03 }}
       animate={active ? { y: -10, scale: 1.04 } : { y: 0, scale: 1 }}
@@ -340,10 +372,10 @@ function PlatformBlock({
       viewport={{ once: true, margin: "-100px" }}
       transition={{ type: "spring", stiffness: 320, damping: 18, delay: index * 0.035 }}
     >
-      <div className="absolute -bottom-3 -right-3 -z-10 h-full w-full rounded-lg bg-secondary" />
-      <div className="absolute inset-2 rounded-md border border-foreground/30" />
+      <div className="absolute -bottom-3 -right-3 -z-10 h-full w-full rounded-lg bg-[color:var(--experience-color)] opacity-35" />
+      <div className="absolute inset-2 rounded-md border" style={{ borderColor: `${color}80` }} />
       <div className="relative flex h-full flex-col justify-between p-3">
-        <span className="grid h-7 w-7 place-items-center rounded-full bg-foreground text-xs font-black text-background">
+        <span className="grid h-7 w-7 place-items-center rounded-full text-xs font-black text-background" style={{ backgroundColor: color }}>
           {String(index + 1).padStart(2, "0")}
         </span>
         <div>
@@ -355,10 +387,12 @@ function PlatformBlock({
   );
 }
 
-function JumpPath() {
+function ExperienceMap() {
   const [activeIndex, setActiveIndex] = useState(0);
   const activeExperience = experiences[activeIndex];
   const [jumperLeft, jumperTop] = platformPositions[activeIndex];
+  const activeColor = experienceColors[activeIndex];
+  const detailPanelTop = `clamp(1.5rem, calc(${jumperTop} - 6rem), calc(100% - 24rem))`;
   const score = String(activeIndex + 1).padStart(2, "0");
 
   const hop = (direction: 1 | -1) => {
@@ -366,70 +400,95 @@ function JumpPath() {
   };
 
   return (
-    <section className="relative overflow-hidden border-t border-border/30 px-6 py-32 md:px-28 md:py-44" id="how-it-works">
+    <section className="relative overflow-hidden border-t border-border/30 px-6 py-32 md:px-28 md:py-44" id="experience-map">
       <motion.div className="mx-auto max-w-4xl text-center" {...fadeUp(0)}>
         <p className="mb-4 text-xs font-bold uppercase tracking-[3px] text-muted-foreground">Experience Map</p>
         <h2 className="text-5xl font-medium tracking-[-1px] md:text-7xl lg:text-8xl">
-          跳过每一块 <span className="font-serif italic font-normal">evidence</span>
+          Evidence behind the <span className="font-serif italic font-normal">fit</span>
         </h2>
         <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-muted-foreground">
-          Click a platform or use the controls to make the marker hop through the CV-aligned experience path.
+          Select a card to see how each project proves a skill: implementation, research judgment, privacy awareness, communication, or execution.
         </p>
       </motion.div>
-      <div className="relative mx-auto mt-20 h-[1180px] max-w-5xl overflow-hidden rounded-3xl border border-border/30 bg-background">
-        <div className="absolute inset-0 opacity-40">
-          <div className="absolute left-1/4 top-20 h-64 w-64 rounded-full border border-foreground/10" />
-          <div className="absolute right-1/4 top-96 h-80 w-80 rounded-full border border-foreground/10" />
-          <div className="absolute bottom-20 left-1/3 h-72 w-72 rounded-full border border-foreground/10" />
-        </div>
-        <svg className="absolute inset-0 h-full w-full" preserveAspectRatio="none" viewBox="0 0 100 100">
-          <path
-            d="M54 8 Q44 14 35 18 T65 26 T80 38 T56 47 T30 39 T18 55 T42 66 T70 61 T84 74 T58 82 T35 76 T16 90"
-            fill="none"
-            stroke="rgba(255,255,255,0.18)"
-            strokeDasharray="1 3"
-            strokeLinecap="round"
-            strokeWidth="1.2"
-          />
-        </svg>
-        <motion.img
-          alt=""
-          className="absolute left-[54%] top-[8%] z-20 h-16 -translate-x-1/2 -translate-y-full drop-shadow-[0_16px_12px_rgba(255,255,255,0.16)]"
-          animate={{ left: jumperLeft, top: jumperTop }}
-          transition={{ type: "spring", stiffness: 120, damping: 16 }}
-          src="/assets/jumper.svg"
-        />
-        {experiences.map((experience, index) => (
-          <PlatformBlock active={index === activeIndex} experience={experience} index={index} key={experience.title} onSelect={setActiveIndex} />
-        ))}
-        <motion.div
-          className="liquid-glass absolute bottom-6 left-1/2 z-40 w-[calc(100%-3rem)] max-w-3xl -translate-x-1/2 rounded-2xl p-5 md:p-6"
-          key={activeExperience.title}
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.35 }}
-        >
-          <div className="flex flex-wrap items-center justify-between gap-4">
-            <div>
-              <p className="text-xs font-bold uppercase tracking-[3px] text-muted-foreground">
-                Hop {score} / {experiences.length} · {activeExperience.area}
-              </p>
-              <h3 className="mt-2 text-xl font-semibold md:text-2xl">{activeExperience.title}</h3>
-            </div>
-            <div className="flex gap-2">
-              <Button className="h-10 px-4" onClick={() => hop(-1)} type="button" variant="glass">
-                Prev
-              </Button>
-              <Button className="h-10 px-4" onClick={() => hop(1)} type="button">
-                Jump
-              </Button>
-            </div>
+      <div className="mx-auto mt-20 flex max-w-7xl flex-col gap-6 lg:flex-row lg:items-start">
+        <div className="relative h-[1180px] min-w-0 flex-1 overflow-hidden rounded-3xl border border-border/30 bg-background">
+          <div className="absolute inset-0 opacity-50">
+            <div className="absolute left-1/4 top-20 h-64 w-64 rounded-full border border-sky-300/20" />
+            <div className="absolute right-1/4 top-96 h-80 w-80 rounded-full border border-amber-300/20" />
+            <div className="absolute bottom-20 left-1/3 h-72 w-72 rounded-full border border-emerald-300/20" />
           </div>
-          <p className="mt-4 text-sm leading-7 text-muted-foreground">{activeExperience.short}</p>
-          <a className="mt-4 inline-flex text-sm font-semibold text-foreground underline-offset-4 hover:underline" href={`#exp-${activeIndex + 1}`}>
-            Read CV entry
-          </a>
-        </motion.div>
+          <svg className="absolute inset-0 h-full w-full" preserveAspectRatio="none" viewBox="0 0 100 100">
+            <defs>
+              <linearGradient id="experience-path-gradient" x1="10" x2="90" y1="5" y2="95" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stopColor="#60a5fa" />
+                <stop offset="28%" stopColor="#34d399" />
+                <stop offset="55%" stopColor="#fbbf24" />
+                <stop offset="78%" stopColor="#f472b6" />
+                <stop offset="100%" stopColor="#a78bfa" />
+              </linearGradient>
+            </defs>
+            <path
+              d="M54 8 Q44 14 35 18 T65 26 T80 38 T56 47 T30 39 T18 55 T42 66 T70 61 T84 74 T58 82 T35 76 T16 90"
+              fill="none"
+              stroke="url(#experience-path-gradient)"
+              strokeDasharray="2 3"
+              strokeLinecap="round"
+              strokeWidth="1.45"
+              opacity="0.72"
+            />
+          </svg>
+          <motion.img
+            alt=""
+            className="absolute left-[54%] top-[8%] z-[60] h-20 -translate-x-1/2 -translate-y-full drop-shadow-[0_18px_18px_rgba(251,191,36,0.35)]"
+            animate={{ left: jumperLeft, top: jumperTop }}
+            transition={{ type: "spring", stiffness: 120, damping: 16 }}
+            src="/assets/jumper.svg"
+          />
+          {experiences.map((experience, index) => (
+            <PlatformBlock
+              active={index === activeIndex}
+              color={experienceColors[index]}
+              experience={experience}
+              index={index}
+              key={experience.title}
+              onSelect={setActiveIndex}
+            />
+          ))}
+        </div>
+        <div className="relative min-h-[22rem] w-full shrink-0 lg:h-[1180px] lg:w-[25rem]">
+          <motion.aside
+            className="w-full rounded-2xl border bg-background/90 p-5 shadow-2xl backdrop-blur-md lg:absolute lg:left-0 lg:right-0 lg:p-6"
+            key={activeExperience.title}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0, top: detailPanelTop }}
+            style={{
+              borderColor: activeColor,
+              boxShadow: `0 22px 60px rgba(0,0,0,0.58), 0 0 38px ${activeColor}55`,
+            }}
+            transition={{ duration: 0.35 }}
+          >
+            <div className="flex flex-wrap items-center justify-between gap-4">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-[3px] text-muted-foreground">
+                  Entry {score} / {experiences.length} · {activeExperience.area}
+                </p>
+                <h3 className="mt-2 text-xl font-semibold md:text-2xl">{activeExperience.title}</h3>
+              </div>
+              <div className="flex gap-2">
+                <Button className="h-10 px-4" onClick={() => hop(-1)} type="button" variant="glass">
+                  Previous
+                </Button>
+                <Button className="h-10 px-4" onClick={() => hop(1)} type="button">
+                  Next
+                </Button>
+              </div>
+            </div>
+            <p className="mt-4 text-sm leading-7 text-muted-foreground">{activeExperience.short}</p>
+            <a className="mt-4 inline-flex text-sm font-semibold text-foreground underline-offset-4 hover:underline" href={`#exp-${activeIndex + 1}`}>
+              Read full entry
+            </a>
+          </motion.aside>
+        </div>
       </div>
     </section>
   );
@@ -437,12 +496,12 @@ function JumpPath() {
 
 function SignalSection() {
   return (
-    <section className="px-6 py-32 text-center md:px-28 md:py-44" id="philosophy">
+    <section className="px-6 py-32 text-center md:px-28 md:py-44" id="profile">
       <motion.h2 className="text-5xl font-medium tracking-[-1px] md:text-7xl lg:text-8xl" {...fadeUp(0)}>
-        Trust has changed. <span className="font-serif italic font-normal">Have you?</span>
+        A coherent profile across <span className="font-serif italic font-normal">CS and health</span>
       </motion.h2>
       <motion.p className="mx-auto mt-8 mb-24 max-w-2xl text-lg leading-8 text-muted-foreground" {...fadeUp(0.1)}>
-        具备人工智能、信息检索、自然语言处理与数据分析项目经验，关注 AI 在生物医学与生命科学场景中的应用。拥有完整的模型开发、数据清洗、检索评估与系统实现经历，并具备药物机制研究、合成生物学与医疗 AI 交叉研究基础。
+        I am a CS-oriented undergraduate with biomedical grounding. My projects connect retrieval systems, evidence verification, privacy workflows, observability, and biomedical context into one theme: making AI systems reliable enough for real information work.
       </motion.p>
       <motion.div className="mx-auto mb-20 grid max-w-4xl gap-3 text-left sm:grid-cols-2" {...fadeUp(0.16)}>
         {profileFacts.map((fact) => (
@@ -461,7 +520,7 @@ function SignalSection() {
         ))}
       </div>
       <motion.p className="text-center text-sm text-muted-foreground" {...fadeUp(0.2)}>
-        Every platform on the path is part of the same question: how can AI become reliable enough for real health-related contexts?
+        My background is interdisciplinary, but not random: CS gives me implementation tools, biomedical research gives me domain constraints, and student leadership/teaching gives me practice communicating technical work clearly.
       </motion.p>
     </section>
   );
@@ -530,13 +589,13 @@ function Mission() {
       />
       <div className="mx-auto mt-16 max-w-5xl">
         <WordReveal
-          highlight={["retrieval", "grounding", "uncertainty"]}
-          text="My profile connects retrieval grounding uncertainty privacy observability and biomedical grounding into one application narrative."
+          highlight={["implementation", "evaluation", "biomedical"]}
+          text="My strongest story is implementation with evaluation and biomedical context: building tools that can be tested explained and used responsibly."
         />
         <div className="mt-10">
           <WordReveal
-            highlight={["trustworthy", "verifiable", "deployable"]}
-            text="A platform-like profile for trustworthy verifiable deployable and evaluation-driven AI systems in health and biomedical information settings."
+            highlight={["software", "AI", "health-tech"]}
+            text="I work across software AI data health-tech research and product-oriented technical projects where execution and clear communication both matter."
           />
         </div>
       </div>
@@ -546,11 +605,11 @@ function Mission() {
 
 function ExperienceWiki() {
   return (
-    <section className="border-t border-border/30 px-6 py-32 md:px-28 md:py-44" id="use-cases">
+    <section className="border-t border-border/30 px-6 py-32 md:px-28 md:py-44" id="experience-details">
       <motion.div className="mx-auto max-w-4xl text-center" {...fadeUp(0)}>
-        <p className="mb-4 text-xs font-bold uppercase tracking-[3px] text-muted-foreground">Profile Wiki</p>
+        <p className="mb-4 text-xs font-bold uppercase tracking-[3px] text-muted-foreground">Experience Details</p>
         <h2 className="text-4xl font-medium tracking-[-1px] md:text-6xl">
-          The platform for <span className="font-serif italic font-normal">verifiable</span> experience
+          What I did, what it proves, and <span className="font-serif italic font-normal">where it fits</span>
         </h2>
       </motion.div>
       <motion.video
@@ -620,17 +679,17 @@ function CTA() {
       <motion.div className="relative z-10 mx-auto max-w-3xl" {...fadeUp(0)}>
         <Logo className="mx-auto h-10 w-10" />
         <h2 className="mt-8 text-4xl font-medium md:text-6xl">
-          Continue the <span className="font-serif italic font-normal">journey</span>
+          Explore the full <span className="font-serif italic font-normal">profile</span>
         </h2>
         <p className="mx-auto mt-6 max-w-2xl leading-8 text-muted-foreground">
-          Trustworthy, verifiable, deployable AI systems for health and biomedical information.
+          A concise view of my work across software engineering, AI/data systems, health technology, research, and product-adjacent technical projects.
         </p>
         <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
-          <a className="inline-flex rounded-lg bg-foreground px-8 py-3.5 text-sm font-semibold text-background" href="#use-cases">
-            Read Experiences
+          <a className="inline-flex rounded-lg bg-foreground px-8 py-3.5 text-sm font-semibold text-background" href="#experience-details">
+            Read Evidence
           </a>
-          <a className="liquid-glass inline-flex rounded-lg px-8 py-3.5 text-sm font-semibold text-foreground" href="#how-it-works">
-            Jump Path
+          <a className="liquid-glass inline-flex rounded-lg px-8 py-3.5 text-sm font-semibold text-foreground" href="#experience-map">
+            View Experience Map
           </a>
         </div>
       </motion.div>
@@ -641,7 +700,7 @@ function CTA() {
 function Footer() {
   return (
     <footer className="flex flex-col justify-between gap-6 px-8 py-12 text-sm text-muted-foreground md:flex-row md:px-28">
-      <p>© 2026 Elina. All rights reserved.</p>
+      <p>© 2026 Elina. CS / Applied Math · AI systems, biomedical information, and deployable tools.</p>
       <div className="flex gap-6">
         {["Privacy", "Terms", "Contact"].map((item) => (
           <a className="transition hover:text-foreground" href="#" key={item}>
@@ -659,7 +718,7 @@ export default function App() {
       <Navbar />
       <Hero />
       <SignalSection />
-      <JumpPath />
+      <ExperienceMap />
       <Mission />
       <ExperienceWiki />
       <CTA />
